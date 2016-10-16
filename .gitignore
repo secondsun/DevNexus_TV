@@ -1,0 +1,28 @@
+## Android SDK
+
+sdk/bin/*
+example/bin/*
+example/gen/*
+example/assets/fhconfig.local.properties
+sdk/local.properties
+sdk/dist/*.MF
+sdk/build/*
+sdk/build.num
+**/gen/*
+sdk/.settings/*
+FHStarterProject/bin/*
+FHStarterProject/gen/*
+*android-support-*.jar
+FHStarterProject/.settings/
+fh-android-sdk-test/gen-external-apklibs/*
+
+## Maven
+
+*/target/*
+
+## NetBeans
+nb-configuration.xml
+
+## IntelliJ
+*.iml
+.idea/
