@@ -7,8 +7,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>tv-api</module>
-    <module>tv-server</module>
-  </modules>
+        <module>tv-server</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

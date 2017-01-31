@@ -1,0 +1,9 @@
+{
+  "realm": "devnexus-monitor",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuDXTGyYxorcOomJcjfTlsDUf4g7G2IY4997BqSDI5EQOh6zYkgOEMhknOxlyrKDMk8IxCISfJveVY7EPzVP+aDqUmw0v+9H4YM2tBbfH4Gcvcd0RDp3g6LADeS2y7KGqv1+G7r225oAHeZqanRmH2faukJhZQlT944mznA6YfTJK8hVZZPYupPkMPMEsWLSnoMUyfJjUna+76UyOugjGWLHLFWUKeVchgOggdUvYAk/0rpgJsA1+ug3mWmuI3WFxBzrZ61pfaFr/BRHJB5AYplmn3rmfS8KnLV0MlKKgDQejtTRKUoEC5t7FkTXC9HClRNA/ZgTNnNZrD4s0242xEQIDAQAB",
+  "bearer-only": true,
+  "auth-server-url": "https://auth-keycloak.cfapps.io/auth",
+  "ssl-required": "external",
+  "resource": "monitor-rest-server",
+  "enable-cors": true
+}

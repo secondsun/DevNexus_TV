@@ -11,7 +11,6 @@
     <artifactId>tv-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <name>tv-server</name>
 
 
@@ -31,6 +30,11 @@
                 <version>${version.wildfly.swarm}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.1-901-1.jdbc4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -75,6 +79,18 @@
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs-cdi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>swagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
     </dependencies>
 </project>
