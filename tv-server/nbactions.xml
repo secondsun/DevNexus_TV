@@ -14,5 +14,13 @@
                 
             </properties>
         </action>
+        <action>
+            <actionName>CUSTOM-Swarm Run</actionName>
+            <displayName>Swarm Run</displayName>
+            <goals>
+                <goal>package</goal>
+                <goal>wildfly-swarm:run</goal>
+            </goals>
+        </action>
         
     </actions>
