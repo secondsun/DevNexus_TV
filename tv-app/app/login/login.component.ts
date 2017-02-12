@@ -5,10 +5,16 @@ import {Injectable, Inject} from "@angular/core";
 
 
 @Component({
-  selector: 'login',
+  selector: 'auth',
   template: `
-    <button type="button" (click)="login()">Sign In</button>
-    <button type="button" (click)="reloadData()">Reload will fail</button>
+   <md-menu #appMenu="mdMenu" >
+       <button md-menu-item (click)="login()" [disabled]="kc.isLoggedIn()" >Sign In</button>
+       <button md-menu-item (click)="logout()" [disabled]="!kc.isLoggedIn()" >Sign Out</button>
+  </md-menu>
+  <button md-icon-button [mdMenuTriggerFor]="appMenu">
+     <md-icon>account_circle</md-icon>
+  </button>
+
 `
 })
 export class LoginComponent {
@@ -22,11 +28,8 @@ export class LoginComponent {
     this.kc.login();
   }
 
-  reloadData() {
-    this.http.get('http://localhost:8080/monitor')
-      .map(res => res.json())
-      .subscribe(prods => console.log(prods),
-        error => console.log(error));
+    logout() {
+    this.kc.logout();
   }
 
 }

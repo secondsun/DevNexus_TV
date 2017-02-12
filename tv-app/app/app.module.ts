@@ -1,22 +1,45 @@
-import {NgModule} from "@angular/core";
-import {BrowserModule} from "@angular/platform-browser";
-import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
-import {KeycloakService} from "./keycloak.service";
-import {AppComponent} from "./app.component";
-import {LoginComponent} from "./login/login.component";
-import {KeycloakHttp} from "./keycloak.http";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { MaterialModule } from '@angular/material';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { KeycloakService } from "./keycloak.service";
+import { MonitorService } from "./monitor.service";
+import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { LoginComponent } from "./login/login.component";
+import { ConfigureMonitorComponent } from "./configure_monitor/configure_monitor.component";
+import { KeycloakHttp } from "./keycloak.http";
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
+    MaterialModule.forRoot(),
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      }, 
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'edit/:id',
+        component: ConfigureMonitorComponent
+      }
+    ])
   ],
   declarations: [
-     AppComponent, LoginComponent
+    AppComponent, DashboardComponent, LoginComponent, ConfigureMonitorComponent
   ],
   providers: [
     KeycloakService,
-
+    MonitorService,
     {
       provide: Http,
       useFactory:
@@ -25,7 +48,7 @@ import {KeycloakHttp} from "./keycloak.http";
         defaultOptions: RequestOptions,
         keycloakService: KeycloakService
       ) => new KeycloakHttp(backend, defaultOptions, keycloakService),
-      
+
       deps: [XHRBackend, RequestOptions, KeycloakService]
     },
     {
@@ -35,10 +58,10 @@ import {KeycloakHttp} from "./keycloak.http";
         backend: XHRBackend,
         defaultOptions: RequestOptions,
       ) => new Http(backend, defaultOptions),
-      
+
       deps: [XHRBackend, RequestOptions]
     }
   ],
-  bootstrap: [  AppComponent  ]
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
