@@ -40,12 +40,15 @@
     </dependencyManagement>
 
     <build>
-        <finalName>demo</finalName>
+        <finalName>monitor-api-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
+                <configuration>
+                    <mainClass>org.devnexus.tv.server.SwarmMain</mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

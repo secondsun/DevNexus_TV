@@ -9,7 +9,7 @@
                 
             </goals>
             <properties>
-                <exec.args>-Dexec.args=-Drebel.env.ide.plugin.version=6.5.1 -Drebel.env.ide.version=8.2 -Drebel.env.ide.product=netbeans -Drebel.env.ide=netbeans -Drebel.base=/home/summers/.jrebel -Drebel.notification.url=http://localhost:17434 -agentpath:/home/summers/netbeans-8.2/java2/griffin/lib/libjrebel64.so  -classpath %classpath org.wildfly.swarm.Swarm</exec.args>
+                <exec.args>-Dexec.args=-Drebel.env.ide.plugin.version=6.5.1 -Drebel.env.ide.version=8.2 -Drebel.env.ide.product=netbeans -Drebel.env.ide=netbeans -Drebel.base=/home/summers/.jrebel -Drebel.notification.url=http://localhost:17434 -agentpath:/home/summers/netbeans-8.2/java2/griffin/lib/libjrebel64.so  -classpath %classpath org.devnexus.tv.server.SwarmMain</exec.args>
                 <exec.executable>java</exec.executable>
                 
             </properties>
