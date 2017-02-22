@@ -9,7 +9,7 @@
                 
             </goals>
             <properties>
-                <exec.args>-Dexec.args=-Drebel.env.ide.plugin.version=6.5.1 -Drebel.env.ide.version=8.2 -Drebel.env.ide.product=netbeans -Drebel.env.ide=netbeans -Drebel.base=/home/summers/.jrebel -Drebel.notification.url=http://localhost:17434 -agentpath:/home/summers/netbeans-8.2/java2/griffin/lib/libjrebel64.so  -classpath %classpath org.devnexus.tv.server.SwarmMain</exec.args>
+                <exec.args>-Dswarm.logging=DEBUG -Dexec.args=-Drebel.env.ide.plugin.version=6.5.1 -Drebel.env.ide.version=8.2 -Drebel.env.ide.product=netbeans -Drebel.env.ide=netbeans -Drebel.base=/home/secondsun/.jrebel -Drebel.notification.url=http://localhost:17434 -agentpath:/home/secondsun/netbeans-8.2/java2/griffin/lib/libjrebel64.so  -classpath %classpath org.devnexus.tv.server.SwarmMain</exec.args>
                 <exec.executable>java</exec.executable>
                 
             </properties>
@@ -21,6 +21,22 @@
                 <goal>package</goal>
                 <goal>wildfly-swarm:run</goal>
             </goals>
+        </action>
+        <action>
+            <actionName>run.single.main</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath ${packageClassName}</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.classpathScope>${classPathScope}</exec.classpathScope>
+                
+            </properties>
         </action>
         
     </actions>

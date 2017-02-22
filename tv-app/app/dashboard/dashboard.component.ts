@@ -23,7 +23,7 @@ import { MonitorService } from "../monitor.service";
         <button  type="button" (click)="reloadData()">Reload</button>
           
         <span class="app-action fab" >
-        <button md-fab><md-icon>add_to_queue</md-icon></button>
+        <button md-fab routerLink="/add"><md-icon>add_to_queue</md-icon></button>
       </span>
       </div>
 `

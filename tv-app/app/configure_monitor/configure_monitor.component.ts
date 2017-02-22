@@ -34,6 +34,7 @@ export class ConfigureMonitorComponent implements OnInit {
     id: '',
     name: '',
     state: '',
+    key:'',
   };
 
   save() {

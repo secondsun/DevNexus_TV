@@ -10,6 +10,7 @@ import org.wildfly.swarm.config.undertow.configuration.ResponseHeader;
 import org.wildfly.swarm.config.undertow.server.Host;
 import org.wildfly.swarm.config.undertow.servlet_container.JSPSetting;
 import org.wildfly.swarm.config.undertow.servlet_container.WebsocketsSetting;
+import org.wildfly.swarm.datasources.DatasourcesFraction;
 import org.wildfly.swarm.spi.api.SocketBinding;
 import org.wildfly.swarm.undertow.UndertowFraction;
 
@@ -52,6 +53,21 @@ public class SwarmMain {
                 )
         );
 
+        
+        swarm.fraction(new DatasourcesFraction()
+                .jdbcDriver("org.postgresql", (d) -> {
+                    d.driverClassName("org.postgresql.Driver");
+                    d.xaDatasourceClass("org.postgresql.xa.PGXADataSource");
+                    d.driverModuleName("org.postgresql");
+                })
+                .dataSource("monitorDS", (ds) -> {
+                    ds.driverName("org.postgresql");
+                    ds.connectionUrl("");
+                    ds.userName("");
+                    ds.password("");
+                })
+        );
+        
         swarm.socketBinding("standard-sockets", new SocketBinding("proxy-https").port(443));
 
         swarm.start();

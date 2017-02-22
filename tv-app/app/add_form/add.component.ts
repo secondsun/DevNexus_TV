@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component,Input,  OnInit } from "@angular/core";
 import { KeycloakService } from "../keycloak.service";
 import { Monitor } from "../monitor";
 import { MonitorService } from "../monitor.service";
@@ -8,7 +8,16 @@ import {QRCodeComponent} from 'angular2-qrcode';
   selector: 'add-form',
   template: `
     <div>
-      <qr-code [value]="'All QR Code data goes here!'" [size]="150"></qr-code>
+      <div>
+      <label>Key: </label>
+      <input [(ngModel)]="monitor.key" placeholder="key from setup">
+    </div>
+      <div>
+      <label>Name: </label>
+      <input [(ngModel)]="monitor.name" placeholder="name">
+    </div>
+      <button  type="button" (click)="save()">Save</button>
+
     </div>
   `
 })
@@ -16,6 +25,20 @@ import {QRCodeComponent} from 'angular2-qrcode';
 export class AddForm implements OnInit {
 
   constructor(private monitorService: MonitorService){}
+
+@Input()
+  monitor : Monitor = {
+    fcm_token: '',
+    id: '',
+    name: '',
+    state: '',
+    key:''
+  };
+
+  save() {
+    this.monitorService.create(this.monitor).then(res => console.log(res)).catch(reason => console.log(reason));
+  }
+
 
   ngOnInit(): void {
     }

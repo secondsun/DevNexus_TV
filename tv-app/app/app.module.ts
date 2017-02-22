@@ -8,6 +8,7 @@ import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./login/login.component";
 import { ConfigureMonitorComponent } from "./configure_monitor/configure_monitor.component";
+import { AddForm } from "./add_form/add.component";
 import { KeycloakHttp } from "./keycloak.http";
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -31,11 +32,15 @@ import { RouterModule } from '@angular/router';
       {
         path: 'edit/:id',
         component: ConfigureMonitorComponent
+      },
+      {
+        path: 'add',
+        component: AddForm
       }
     ])
   ],
   declarations: [
-    AppComponent, DashboardComponent, LoginComponent, ConfigureMonitorComponent
+    AppComponent, DashboardComponent, LoginComponent, ConfigureMonitorComponent, AddForm
   ],
   providers: [
     KeycloakService,
